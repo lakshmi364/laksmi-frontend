@@ -17,7 +17,10 @@ export default defineConfig({
     'process.env': {},
   },
   build: {
-    outDir: 'dist', // 🔥 Tells Vite to output to dist (important for Netlify)
+    outDir: 'dist', // Netlify will use this directory for publishing
     emptyOutDir: true,
-  }
+    rollupOptions: {
+      input: './index.html', // ensures Netlify knows what the entry is (required if index.html is used)
+    },
+  },
 });
