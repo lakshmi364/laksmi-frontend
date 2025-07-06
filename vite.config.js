@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'), // So you can use '@/components/...' style imports
+      '@': path.resolve(__dirname, './src'),
     },
   },
   server: {
@@ -16,4 +16,8 @@ export default defineConfig({
   define: {
     'process.env': {},
   },
-})
+  build: {
+    outDir: 'dist', // 🔥 Tells Vite to output to dist (important for Netlify)
+    emptyOutDir: true,
+  }
+});
