@@ -1,7 +1,8 @@
+// src/components/ThemeContext.jsx
 import React, { createContext, useState, useContext } from "react";
 
 // Create the theme context
-const ThemeContext = createContext();
+export const ThemeContext = createContext();
 
 // Create the ThemeProvider
 export const ThemeProvider = ({ children }) => {
