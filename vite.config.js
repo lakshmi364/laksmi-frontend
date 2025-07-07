@@ -1,4 +1,3 @@
-// vite.config.js
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
@@ -10,5 +9,4 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  base: './', // ✅ Needed for Netlify to load relative paths correctly
 });
