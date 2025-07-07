@@ -1,3 +1,4 @@
+// src/App.jsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Chat from "./pages/Chat";
@@ -35,4 +36,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default App
