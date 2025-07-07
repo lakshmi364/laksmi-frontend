@@ -13,4 +13,5 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
   },
-})
+  publicDir: 'public', // optional, can be removed if unused
+});
