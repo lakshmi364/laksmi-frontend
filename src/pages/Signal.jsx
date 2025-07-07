@@ -1,6 +1,6 @@
 // src/pages/Signal.jsx
 import React, { useState } from "react";
-import { Input } from "@/components/ui/input";
+import Input from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { BadgeCheck, LineChart } from "lucide-react";
 
