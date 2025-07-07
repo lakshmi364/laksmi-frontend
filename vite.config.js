@@ -5,13 +5,15 @@ import path from 'path';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  root: '.', // Set root to current folder
+  publicDir: 'public', // Vite will look for index.html and assets here
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      '@': path.resolve(__dirname, 'src'), // Use @ for src path
     },
   },
   build: {
-    outDir: 'dist',
-    emptyOutDir: true,
+    outDir: 'dist', // Output directory for Netlify
+    emptyOutDir: true, // Clean dist folder before build
   },
 })
