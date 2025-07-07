@@ -13,5 +13,6 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
-  }
-});
+  },
+  publicDir: 'public', // keep for static files like favicon, mp3
+})
