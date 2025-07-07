@@ -1,9 +1,10 @@
+// vite.config.js
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
 export default defineConfig({
-  base: './', // 💡 This is crucial for Netlify to load assets correctly
+  base: './', // 💥 THIS is the fix for blank screen on Netlify!
   plugins: [react()],
   resolve: {
     alias: {
@@ -11,6 +12,7 @@ export default defineConfig({
     },
   },
   build: {
+    outDir: 'dist',
     rollupOptions: {
       external: ['prop-types'],
     },
