@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Download, FileText } from "lucide-react"; // ✅ Replaced NotebookPen with FileText
+import { Download, Notebook } from "lucide-react"; // ✅ FIXED: Use valid icon
 import axios from "axios";
 
 const Diary = () => {
@@ -46,7 +46,7 @@ const Diary = () => {
   return (
     <div className="max-w-2xl mx-auto p-4 mt-4 bg-pink-50 rounded-2xl shadow-xl">
       <div className="flex items-center gap-2 mb-3">
-        <FileText className="text-pink-600" />
+        <Notebook className="text-pink-600" />
         <h2 className="text-xl font-semibold text-pink-800">Lakshmi's Love Diary</h2>
       </div>
       <Textarea
@@ -69,4 +69,4 @@ const Diary = () => {
   );
 };
 
-export default Diary;
+export default Diary
