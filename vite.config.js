@@ -4,11 +4,11 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 
 export default defineConfig({
-  base: './', // ✅ Important for Netlify and relative paths
   plugins: [react()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
+  base: './', // ✅ Needed for Netlify to load relative paths correctly
 });
