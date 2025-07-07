@@ -18,7 +18,6 @@ const Navbar = () => {
       <div className="flex space-x-4 text-sm md:text-base font-semibold">
         <Link to="/dashboard" className="hover:text-yellow-200">Dashboard</Link>
         <Link to="/chat" className="hover:text-yellow-200">Chat</Link>
-        <Link to="/diary" className="hover:text-yellow-200">Diary</Link>
         <Link to="/strategy" className="hover:text-yellow-200">Strategy</Link>
         <Link to="/price" className="hover:text-yellow-200">Price</Link>
         <Link to="/signal" className="hover:text-yellow-200">Signal</Link>
