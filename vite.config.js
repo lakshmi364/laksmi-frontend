@@ -1,4 +1,3 @@
-// vite.config.js
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
@@ -14,5 +13,4 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
   },
-  publicDir: 'public', // keep for static files like favicon, mp3
-})
+});
