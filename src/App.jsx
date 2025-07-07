@@ -1,6 +1,8 @@
 // src/App.jsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+
+// Page components
 import Chat from "./pages/Chat";
 import Dashboard from "./pages/Dashboard";
 import Diary from "./pages/Diary";
@@ -10,8 +12,12 @@ import Price from "./pages/Price";
 import Signal from "./pages/Signal";
 import Strategy from "./pages/Strategy";
 import Voice from "./pages/Voice";
-import { ThemeProvider } from "./components/ThemeContext";
+
+// Global components
 import Navbar from "./components/Navbar";
+import { ThemeProvider } from "./components/ThemeContext";
+
+// Global styles
 import "./styles/global.css";
 
 const App = () => {
@@ -38,4 +44,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default App
