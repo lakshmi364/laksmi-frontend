@@ -1,14 +1,15 @@
 import React from 'react';
 
-const Button = ({ children, className = '', ...props }) => {
+const Button = ({ children, onClick, type = 'button', className = '' }) => {
   return (
     <button
-      className={`px-4 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-xl shadow transition duration-200 ${className}`}
-      {...props}
+      type={type}
+      onClick={onClick}
+      className={`px-4 py-2 rounded-xl bg-pink-600 text-white font-semibold hover:bg-pink-700 transition-all duration-300 shadow-md ${className}`}
     >
       {children}
     </button>
   );
 };
 
-export default Button
+export default Button;
