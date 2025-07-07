@@ -1,16 +1,21 @@
-// src/components/ui/textarea.jsx
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Textarea = React.forwardRef(({ className = "", ...props }, ref) => {
+export function Textarea({ value, onChange, placeholder, rows = 5 }) {
   return (
     <textarea
-      ref={ref}
-      className={`w-full px-4 py-2 border border-pink-300 rounded-xl shadow-sm bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-rose-400 transition duration-200 ${className}`}
-      {...props}
+      className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      rows={rows}
     />
   );
-});
+}
 
-Textarea.displayName = "Textarea";
-
-export default Textarea
+Textarea.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  rows: PropTypes.number,
+};
