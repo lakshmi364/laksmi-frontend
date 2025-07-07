@@ -1,39 +1,11 @@
-// src/App.jsx
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Chat from "./pages/Chat";
-import Dashboard from "./pages/Dashboard";
-import Log from "./pages/Log";
-import Login from "./pages/Login";
-import Price from "./pages/Price";
-import Signal from "./pages/Signal";
-import Strategy from "./pages/Strategy";
-import Voice from "./pages/Voice";
-import Navbar from "./components/Navbar";
-import { ThemeProvider } from "./components/ThemeContext";
-import "./styles/global.css";
+import React from 'react';
 
 const App = () => {
-  const isLoggedIn = localStorage.getItem("token");
-
   return (
-    <ThemeProvider>
-      <Router>
-        {isLoggedIn && <Navbar />}
-        <Routes>
-          <Route path="/" element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/chat" element={<Chat />} />
-          <Route path="/log" element={<Log />} />
-          <Route path="/price" element={<Price />} />
-          <Route path="/signal" element={<Signal />} />
-          <Route path="/strategy" element={<Strategy />} />
-          <Route path="/voice" element={<Voice />} />
-        </Routes>
-      </Router>
-    </ThemeProvider>
+    <div style={{ textAlign: 'center', marginTop: '20%' }}>
+      {/* This will just show blank white screen */}
+    </div>
   );
 };
 
-export default App
+export default App;
