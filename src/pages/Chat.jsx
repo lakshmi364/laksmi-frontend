@@ -1,7 +1,7 @@
 // src/pages/Chat.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import Input from "@/components/ui/input";
 import { Send, Bot, Smile, Sparkle, Heart, Flame } from "lucide-react";
 
 const backend = "https://lakshmi-backend-z6cz.onrender.com";
