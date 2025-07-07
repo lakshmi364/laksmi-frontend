@@ -1,69 +1,52 @@
+// src/pages/Diary.jsx
 import React, { useState, useEffect } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Download, Notebook } from "lucide-react"; // ✅ Fixed here
+import { Download, Notebook } from "lucide-react"; // ✔️ replaced NotebookPen with Notebook
 import axios from "axios";
 
 const Diary = () => {
-  const [note, setNote] = useState("");
-  const [status, setStatus] = useState("idle");
+  const [text, setText] = useState("");
+  const [entries, setEntries] = useState([]);
 
-  const fetchNote = async () => {
-    try {
-      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/diary`);
-      setNote(res.data.note || "");
-    } catch (error) {
-      console.error("Error fetching diary note:", error);
-    }
+  const fetchEntries = async () => {
+    const res = await axios.get("/api/diary");
+    setEntries(res.data);
   };
 
-  const saveNote = async () => {
-    setStatus("saving");
-    try {
-      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/diary`, { note });
-      setStatus("saved");
-      setTimeout(() => setStatus("idle"), 2000);
-    } catch (error) {
-      console.error("Error saving diary note:", error);
-      setStatus("error");
-    }
+  const saveEntry = async () => {
+    await axios.post("/api/diary", { text });
+    setText("");
+    fetchEntries();
   };
 
   useEffect(() => {
-    fetchNote();
+    fetchEntries();
   }, []);
 
   return (
-    <div className="max-w-2xl mx-auto mt-10 p-4 rounded-xl bg-white shadow-xl">
-      <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-        <Notebook className="w-6 h-6 text-pink-600" /> Your Love Diary 💖
-      </h2>
-      <Textarea
-        value={note}
-        onChange={(e) => setNote(e.target.value)}
-        rows={12}
-        placeholder="Write your romantic memories here..."
-        className="mb-4"
-      />
-      <div className="flex gap-4">
-        <Button onClick={saveNote} disabled={status === "saving"}>
-          {status === "saving" ? "Saving..." : "Save"}
+    <div className="max-w-xl mx-auto px-4 py-6">
+      <div className="flex flex-col gap-2">
+        <Textarea
+          placeholder="Write your diary..."
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+        <Button onClick={saveEntry}>
+          <Download className="mr-2" /> Save Entry
         </Button>
-        <a
-          href={`data:text/plain;charset=utf-8,${encodeURIComponent(note)}`}
-          download="love_diary.txt"
-        >
-          <Button variant="outline" className="flex items-center gap-2">
-            <Download className="w-4 h-4" /> Download
-          </Button>
-        </a>
       </div>
-      {status === "saved" && (
-        <p className="text-green-500 mt-2">Note saved successfully! 💗</p>
-      )}
-      {status === "error" && (
-        <p className="text-red-500 mt-2">Failed to save. Try again. 😢</p>
-      )}
+      <div className="mt-6 space-y-4">
+        {entries.map((e, idx) => (
+          <div key={idx} className="p-4 bg-white dark:bg-zinc-800 rounded-xl">
+            <div className="flex items-center gap-2 mb-2">
+              <Notebook className="text-purple-500" />
+              <span className="font-semibold">Entry {idx + 1}</span>
+            </div>
+            <p className="whitespace-pre-wrap">{e.text}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
