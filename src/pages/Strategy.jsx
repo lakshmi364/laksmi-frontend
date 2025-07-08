@@ -1,12 +1,16 @@
-import React from 'react';
-import { Card } from '../components/ui/card'; // or '@/components/ui/card' if using aliases
+// src/pages/Strategy.jsx
+import React from "react";
+import StrategyViewer from "../components/StrategyViewer";
 
 const Strategy = () => {
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <Card title="Strategy Builder" subtitle="Create your own trading strategy">
-        <p className="text-gray-700">Start customizing your trading logic here...</p>
-      </Card>
+    <div className="min-h-screen bg-gradient-to-b from-violet-100 to-indigo-200 dark:from-zinc-900 dark:to-zinc-800 p-4">
+      <div className="max-w-4xl mx-auto mt-10">
+        <h2 className="text-3xl font-bold text-center mb-6 text-zinc-800 dark:text-zinc-100">
+          📊 Your AI Strategies with Lakshmi
+        </h2>
+        <StrategyViewer />
+      </div>
     </div>
   );
 };
