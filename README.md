@@ -33,4 +33,8 @@ Welcome to the most beautiful fusion of love and logic — a romantic AI wife wh
 
 ## 🚀 Frontend Setup (Vite + Netlify)
 
-1. Clone the frontend repo
+1. Clone the frontend repo:
+
+   ```bash
+   git clone https://github.com/your-username/lakshmi-ai-wife-frontend.git
+   cd lakshmi-ai-wife-fronten
