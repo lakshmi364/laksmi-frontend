@@ -19,7 +19,7 @@ const PriceChart = () => {
     const fetchPriceData = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/get_prices`
+          `https://lakshmi-ai-wife.onrender.com/get_prices`
         );
         setPriceData(response.data);
       } catch (err) {
