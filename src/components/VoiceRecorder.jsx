@@ -25,7 +25,7 @@ const VoiceRecorder = ({ onUploadSuccess }) => {
     try {
       setUploading(true);
       const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/upload_voice`,
+        `https://lakshmi-ai-wife.onrender.com/upload_voice`,
         formData,
         {
           headers: {
