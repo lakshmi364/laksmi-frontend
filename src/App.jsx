@@ -2,15 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
-
-const Chat = () => {
-  return (
-    <div style={{ textAlign: 'center', padding: '60px 20px', minHeight: '100vh' }}>
-      <h2 style={{ color: '#333' }}>💬 Chat with Lakshmi</h2>
-      <p style={{ marginTop: '10px' }}>Chat feature will be added soon.</p>
-    </div>
-  );
-};
+import Chat from './pages/Chat';
 
 const App = () => {
   return (
