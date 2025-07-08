@@ -10,7 +10,7 @@ const StrategyViewer = () => {
     const fetchStrategies = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/get_strategies`
+          `https://lakshmi-ai-wife.onrender.com/get_strategies`
         );
         setStrategies(res.data);
       } catch (err) {
