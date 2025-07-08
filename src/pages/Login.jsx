@@ -12,7 +12,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post('https://lakshmi-backend-z6cz.onrender.com/login', new URLSearchParams({
+      const res = await axios.post('https://lakshmi-ai-wife.onrender.com/login', new URLSearchParams({
         username,
         password
       }), {
