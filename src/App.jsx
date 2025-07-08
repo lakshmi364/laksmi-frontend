@@ -1,6 +1,7 @@
 // src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Dashboard from './pages/Dashboard'; // ✅ FIX: Import your Dashboard component
 
 const App = () => {
   return (
@@ -10,13 +11,40 @@ const App = () => {
         <p style={{ marginTop: '20px', fontSize: '1.2rem' }}>
           This is your romantic AI wife + trading assistant homepage. Let's get started!
         </p>
-        <Link to="/chat" style={{ display: 'inline-block', marginTop: '30px', fontSize: '1rem', color: 'white', backgroundColor: '#d63384', padding: '10px 20px', borderRadius: '8px', textDecoration: 'none' }}>
-          Go to Chat 💬
-        </Link>
+        <div style={{ marginTop: '30px' }}>
+          <Link
+            to="/chat"
+            style={{
+              marginRight: '10px',
+              fontSize: '1rem',
+              color: 'white',
+              backgroundColor: '#d63384',
+              padding: '10px 20px',
+              borderRadius: '8px',
+              textDecoration: 'none',
+            }}
+          >
+            Go to Chat 💬
+          </Link>
+          <Link
+            to="/dashboard"
+            style={{
+              fontSize: '1rem',
+              color: 'white',
+              backgroundColor: '#6f42c1',
+              padding: '10px 20px',
+              borderRadius: '8px',
+              textDecoration: 'none',
+            }}
+          >
+            Go to Dashboard 📊
+          </Link>
+        </div>
       </div>
 
       <Routes>
         <Route path="/chat" element={<Chat />} />
+        <Route path="/dashboard" element={<Dashboard />} /> {/* ✅ Add this route */}
       </Routes>
     </Router>
   );
