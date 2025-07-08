@@ -1,3 +1,4 @@
+// src/pages/Dashboard.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -10,6 +11,8 @@ const Dashboard = () => {
   const [diary, setDiary] = useState('');
   const [voiceFiles, setVoiceFiles] = useState([]);
 
+  const backend = "https://lakshmi-ai-wife.onrender.com";
+
   const handleSend = async () => {
     if (!message.trim()) return;
     const userMsg = message.trim();
@@ -17,7 +20,7 @@ const Dashboard = () => {
     setMessage('');
 
     try {
-      const res = await axios.post('https://lakshmi-backend-z6cz.onrender.com/chat', new URLSearchParams({ message: userMsg }));
+      const res = await axios.post(`${backend}/chat`, new URLSearchParams({ message: userMsg }));
       const reply = res.data.reply;
       setMood(res.data.mood);
       setChatLog((prev) => [...prev, { sender: 'Lakshmi', text: reply }]);
@@ -28,7 +31,7 @@ const Dashboard = () => {
 
   const fetchLTP = async () => {
     try {
-      const res = await axios.get('https://lakshmi-backend-z6cz.onrender.com/get_price');
+      const res = await axios.get(`${backend}/get_price`);
       setLtpData(res.data);
     } catch {
       setLtpData({ ltp: '-', status: 'Error fetching price' });
@@ -37,7 +40,7 @@ const Dashboard = () => {
 
   const handleManualLTP = async () => {
     try {
-      await axios.post('https://lakshmi-backend-z6cz.onrender.com/update_manual_ltp', new URLSearchParams({ manual_ltp: manualLtp }));
+      await axios.post(`${backend}/update_manual_ltp`, new URLSearchParams({ manual_ltp: manualLtp }));
       fetchLTP();
     } catch {
       alert('Invalid LTP');
@@ -46,7 +49,7 @@ const Dashboard = () => {
 
   const handleDiarySave = async () => {
     try {
-      await axios.post('https://lakshmi-backend-z6cz.onrender.com/save_diary', new URLSearchParams({ entry: diary }));
+      await axios.post(`${backend}/save_diary`, new URLSearchParams({ entry: diary }));
       setDiary('');
       alert('Diary saved 💌');
     } catch {
@@ -56,7 +59,7 @@ const Dashboard = () => {
 
   const fetchVoices = async () => {
     try {
-      const res = await axios.get('https://lakshmi-backend-z6cz.onrender.com/voice_list');
+      const res = await axios.get(`${backend}/voice_list`);
       setVoiceFiles(res.data);
     } catch {
       setVoiceFiles([]);
@@ -69,7 +72,7 @@ const Dashboard = () => {
     const formData = new FormData();
     formData.append('voice_file', file);
     try {
-      await axios.post('https://lakshmi-backend-z6cz.onrender.com/upload_voice', formData);
+      await axios.post(`${backend}/upload_voice`, formData);
       fetchVoices();
       alert('Voice uploaded 🎤');
     } catch {
@@ -150,7 +153,7 @@ const Dashboard = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {voiceFiles.map((file, idx) => (
             <audio key={idx} controls className="w-full">
-              <source src={`https://lakshmi-backend-z6cz.onrender.com/static/voice_notes/${file}`} />
+              <source src={`${backend}/static/voice_notes/${file}`} />
               Your browser does not support audio.
             </audio>
           ))}
