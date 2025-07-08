@@ -17,7 +17,7 @@ const ChatInterface = () => {
 
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/chat`,
+        `https://lakshmi-ai-wife.onrender.com/chat`,
         { message: input }
       );
       const aiMessage = { sender: "Lakshmi 💖", text: res.data.response };
