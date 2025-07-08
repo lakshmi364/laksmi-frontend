@@ -11,7 +11,7 @@ const Voice = () => {
 
   const fetchVoices = async () => {
     try {
-      const res = await axios.get("https://lakshmi-backend-z6cz.onrender.com/voice_list");
+      const res = await axios.get("https://lakshmi-ai-wife.onrender.com/voice_list");
       setVoiceList(res.data.reverse());
     } catch (error) {
       console.error("Error fetching voice notes", error);
@@ -23,7 +23,7 @@ const Voice = () => {
     const form = new FormData();
     form.append("voice_file", file);
     try {
-      await axios.post("https://lakshmi-backend-z6cz.onrender.com/upload_voice", form);
+      await axios.post("https://lakshmi-ai-wife.onrender.com/upload_voice", form);
       setUploaded(true);
       setFile(null);
       fetchVoices();
@@ -68,7 +68,7 @@ const Voice = () => {
             <Music2 className="text-pink-600" />
             <audio controls className="w-full">
               <source
-                src={`https://lakshmi-backend-z6cz.onrender.com/static/voice_notes/${name}`}
+                src={`https://lakshmi-ai-wife.onrender.com/static/voice_notes/${name}`}
                 type="audio/mpeg"
               />
               Your browser does not support the audio element.
@@ -81,4 +81,4 @@ const Voice = () => {
   );
 };
 
-export default Voice
+export default Voice;
