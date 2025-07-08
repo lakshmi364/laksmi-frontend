@@ -1,4 +1,3 @@
-// src/components/StrategyViewer.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -54,4 +53,16 @@ const StrategyViewer = () => {
               </div>
               <button
                 onClick={() => downloadStrategy(strategy, index)}
-                className="text-xs px-3 py-1 bg-pink-500 hover
+                className="text-xs px-3 py-1 bg-pink-500 hover:bg-pink-600 text-white rounded-lg"
+              >
+                Download
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
+
+export default StrategyViewer
