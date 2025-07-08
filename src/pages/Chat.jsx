@@ -1,29 +1,18 @@
-import React, { useState } from 'react';
-import Input from '@/components/ui/input'; // ✅ FIXED: default import
-import { Button } from '@/components/ui/button';
+// src/pages/Chat.jsx
+import React from "react";
+import ChatInterface from "../components/ChatInterface";
 
 const Chat = () => {
-  const [message, setMessage] = useState('');
-
-  const sendMessage = () => {
-    alert(`Lakshmi received: ${message}`);
-    setMessage('');
-  };
-
   return (
-    <div className="max-w-xl mx-auto mt-10 p-4 text-center">
-      <h1 className="text-3xl font-bold mb-6">💬 Chat with Lakshmi</h1>
-      <div className="flex gap-2 items-center justify-center">
-        <Input
-          type="text"
-          placeholder="Type your romantic message..."
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <Button onClick={sendMessage}>Send</Button>
+    <div className="min-h-screen bg-gradient-to-b from-rose-100 to-pink-200 dark:from-zinc-900 dark:to-zinc-800 p-4">
+      <div className="max-w-3xl mx-auto mt-10">
+        <h2 className="text-3xl font-bold text-center mb-6 text-zinc-800 dark:text-zinc-100">
+          💬 Talk with Lakshmi
+        </h2>
+        <ChatInterface />
       </div>
     </div>
   );
 };
 
-export default Chat;
+export default Chat
