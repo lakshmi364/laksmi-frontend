@@ -1,3 +1,4 @@
+// src/components/StrategyViewer.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -65,4 +66,4 @@ const StrategyViewer = () => {
   );
 };
 
-export default StrategyViewer
+export default StrategyViewer;
