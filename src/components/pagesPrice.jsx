@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { RefreshCw, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const backend = "https://lakshmi-backend-z6cz.onrender.com";
+const backend = "https://lakshmi-ai-wife.onrender.com";
 
 const Price = () => {
   const [ltp, setLtp] = useState(null);
@@ -62,4 +62,4 @@ const Price = () => {
   );
 };
 
-export default Price
+export default Price;
