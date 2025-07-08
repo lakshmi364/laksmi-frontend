@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await axios.post('https://lakshmi-backend-z6cz.onrender.com/login', {
+      const response = await axios.post('https://lakshmi-ai-wife.onrender.com/login', {
         username,
         password,
       });
