@@ -14,10 +14,10 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/login`,
-        { username, password }
-      );
+      const response = await axios.post('https://lakshmi-ai-wife.onrender.com/login', {
+        username,
+        password,
+      });
       if (response.data.success) {
         setUser({ username });
         localStorage.setItem('lakshmi_user', JSON.stringify({ username }));
